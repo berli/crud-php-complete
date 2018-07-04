@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 
 <?php
-if(!isset($_SESSION['valid'])) {
+if(!isset($_SESSION['valid'])) 
+{
 	header('Location: login.php');
 }
 ?>
