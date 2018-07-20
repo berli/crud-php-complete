@@ -44,11 +44,21 @@ if(isset($_POST['Submit'])) {
 		// if all the fields are filled (not empty) 
 			
 		//insert data to database	
-		$result = mysqli_query($mysqli, "INSERT INTO products(name, qty, price, login_id) VALUES('$name','$qty','$price', '$loginId')");
+		$result = mysqli_query($conn, "INSERT INTO products(name, qty, price, login_id) VALUES('$name',$qty,$price, $loginId)");
+		if($result instanceof mysqli_result)  
+		{
+			echo 'success';
+		}
+		else
+		{
+			echo 'fail';
+		}
 		
 		//display success message
 		echo "<font color='green'>Data added successfully.";
 		echo "<br/><a href='view.php'>View Result</a>";
+		echo "result=";
+		echo $result;
 	}
 }
 ?>

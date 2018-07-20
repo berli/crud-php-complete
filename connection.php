@@ -18,6 +18,9 @@ $databaseName = 'test2';
 $databaseUsername = 'root';
 $databasePassword = 'root';
 
-$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
-	
+$conn = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
+if($conn->connect_error)
+{
+	die('连接失败:'.$conn->connect_error);
+}	
 ?>
