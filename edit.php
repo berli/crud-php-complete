@@ -34,7 +34,7 @@ if(isset($_POST['update']))
 		}		
 	} else {	
 		//updating the table
-		$result = mysqli_query($mysqli, "UPDATE products SET name='$name', qty='$qty', price='$price' WHERE id=$id");
+		$result = mysqli_query($conn, "UPDATE products SET name='$name', qty=$qty, price=$price WHERE id=$id");
 		
 		//redirectig to the display page. In our case, it is view.php
 		header("Location: view.php");
@@ -46,7 +46,7 @@ if(isset($_POST['update']))
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM products WHERE id=$id");
+$result = mysqli_query($conn, "SELECT * FROM products WHERE id=$id");
 
 while($res = mysqli_fetch_array($result))
 {
